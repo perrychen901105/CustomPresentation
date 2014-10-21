@@ -17,6 +17,7 @@
 		0199933F197EEAE70097E0FD /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199933E197EEAE70097E0FD /* Country.swift */; };
 		01999341197EEFF90097E0FD /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01999340197EEFF90097E0FD /* CountryData.plist */; };
 		01999343197EF0EC0097E0FD /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01999342197EF0EC0097E0FD /* CollectionViewLayout.swift */; };
+		2C867EC319F68E8200F2C7D6 /* SimplePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C867EC219F68E8200F2C7D6 /* SimplePresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0199933E197EEAE70097E0FD /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		01999340197EEFF90097E0FD /* CountryData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryData.plist; sourceTree = "<group>"; };
 		01999342197EF0EC0097E0FD /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		2C867EC219F68E8200F2C7D6 /* SimplePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		018B7D791980652B00C62AE7 /* PresentationControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C867EC219F68E8200F2C7D6 /* SimplePresentationController.swift */,
 			);
 			name = PresentationControllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				01999320197EE65D0097E0FD /* AppDelegate.swift in Sources */,
 				018B7D7719805C1D00C62AE7 /* OverlayViewController.swift in Sources */,
 				01999343197EF0EC0097E0FD /* CollectionViewLayout.swift in Sources */,
+				2C867EC319F68E8200F2C7D6 /* SimplePresentationController.swift in Sources */,
 				0199933D197EE7500097E0FD /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
