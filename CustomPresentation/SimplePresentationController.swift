@@ -79,4 +79,10 @@ class SimplePresentationController: UIPresentationController, UIAdaptivePresenta
         return UIModalPresentationStyle.OverFullScreen
     }
     
+    func animationControllerForDismissedController(dimissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        var animationController = SimpleAnimatedTransitioning()
+        animationController.isPresentation = false
+        return animationController
+    }
+    
 }

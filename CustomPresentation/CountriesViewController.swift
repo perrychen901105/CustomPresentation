@@ -29,6 +29,8 @@ class CountriesViewController: UIViewController {
   @IBOutlet var collectionViewLeadingConstraint: NSLayoutConstraint!
   @IBOutlet var collectionViewTrailingConstraint: NSLayoutConstraint!
   
+    let simpleTransitionDelegate = SimpleTransitioningDelegate()
+    
   var countries = Country.countries()
   
   override func viewDidLoad() {
@@ -102,11 +104,20 @@ class CountriesViewController: UIViewController {
   
   func collectionView(collectionView: UICollectionView!,
     didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-      
+      showSimpleOverlayForIndexPath(indexPath)
 
   }
   
-  
+    func showSimpleOverlayForIndexPath(indexPath: NSIndexPath) {
+        let country = countries[indexPath.row] as Country
+        
+        transitioningDelegate = simpleTransitionDelegate
+        
+        var overlay = OverlayViewController(country: country)
+        overlay.transitioningDelegate = simpleTransitionDelegate
+        
+        presentViewController(overlay, animated: true, completion: nil)
+    }
   
 }
 

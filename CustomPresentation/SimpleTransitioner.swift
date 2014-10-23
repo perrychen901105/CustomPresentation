@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimpleTransitioner: NSObject, UIViewControllerAnimatedTransitioning {
+class SimpleAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 
     var isPresentation: Bool = false
     
@@ -57,8 +57,16 @@ class SimpleTransitioner: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 class SimpleTransitioningDelegate:NSObject, UIViewControllerTransitioningDelegate {
-//    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController!, sourceViewController source: UIViewController) -> UIPresentationController? {
-//    }
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController!, sourceViewController source: UIViewController) -> UIPresentationController? {
+        let presentationController = SimplePresentationController(presentedViewController: presented, presentingViewController: presenting)
+        return presentationController
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        var animationController = SimpleAnimatedTransitioning()
+        animationController.isPresentation = true
+        return animationController
+    }
 }
 
 
