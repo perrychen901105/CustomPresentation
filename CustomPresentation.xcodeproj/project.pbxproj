@@ -18,6 +18,7 @@
 		01999341197EEFF90097E0FD /* CountryData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01999340197EEFF90097E0FD /* CountryData.plist */; };
 		01999343197EF0EC0097E0FD /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01999342197EF0EC0097E0FD /* CollectionViewLayout.swift */; };
 		2C867EC319F68E8200F2C7D6 /* SimplePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C867EC219F68E8200F2C7D6 /* SimplePresentationController.swift */; };
+		2CCAD4E719F91F2E003E7EC3 /* SimpleTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCAD4E619F91F2E003E7EC3 /* SimpleTransitioner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		01999340197EEFF90097E0FD /* CountryData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryData.plist; sourceTree = "<group>"; };
 		01999342197EF0EC0097E0FD /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		2C867EC219F68E8200F2C7D6 /* SimplePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePresentationController.swift; sourceTree = "<group>"; };
+		2CCAD4E619F91F2E003E7EC3 /* SimpleTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTransitioner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				01999342197EF0EC0097E0FD /* CollectionViewLayout.swift */,
 				018B7D7619805C1D00C62AE7 /* OverlayViewController.swift */,
 				0199933E197EEAE70097E0FD /* Country.swift */,
+				2CCAD4E619F91F2E003E7EC3 /* SimpleTransitioner.swift */,
 				018B7D781980652100C62AE7 /* Transitioners */,
 				018B7D791980652B00C62AE7 /* PresentationControllers */,
 				01999340197EEFF90097E0FD /* CountryData.plist */,
@@ -250,6 +253,7 @@
 				01999343197EF0EC0097E0FD /* CollectionViewLayout.swift in Sources */,
 				2C867EC319F68E8200F2C7D6 /* SimplePresentationController.swift in Sources */,
 				0199933D197EE7500097E0FD /* CollectionViewCell.swift in Sources */,
+				2CCAD4E719F91F2E003E7EC3 /* SimpleTransitioner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
