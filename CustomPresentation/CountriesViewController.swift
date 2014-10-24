@@ -31,6 +31,10 @@ class CountriesViewController: UIViewController {
   
     let simpleTransitionDelegate = SimpleTransitioningDelegate()
     
+    var awesomeTransitionDelegate: AwesomeTransitioningDelegate?
+    
+    var selectionObject: SelectionObject?
+    
   var countries = Country.countries()
   
   override func viewDidLoad() {
@@ -109,15 +113,54 @@ class CountriesViewController: UIViewController {
   }
   
     func showSimpleOverlayForIndexPath(indexPath: NSIndexPath) {
-        let country = countries[indexPath.row] as Country
+//        let country = countries[indexPath.row] as Country
+//        
+//        transitioningDelegate = simpleTransitionDelegate
+//        
+//        var overlay = OverlayViewController(country: country)
+//        overlay.transitioningDelegate = simpleTransitionDelegate
+//        
+//        presentViewController(overlay, animated: true, completion: nil)
         
-        transitioningDelegate = simpleTransitionDelegate
-        
-        var overlay = OverlayViewController(country: country)
-        overlay.transitioningDelegate = simpleTransitionDelegate
-        
-        presentViewController(overlay, animated: true, completion: nil)
+        showAwesomeOverlayForIndexPath(indexPath)
+    
     }
   
+    func showAwesomeOverlayForIndexPath(indexPath: NSIndexPath) {
+        let country = countries[indexPath.row] as Country
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as CollectionViewCell
+        
+        // 1    Get the collection view cell's frame for the cell at the index path. Use the value from the cells' superview so that you're using the actual position from the view controller and not just the position in the collection view.
+        var rect = selectedCell.frame
+        let origin = view.convertPoint(rect.origin, fromView: selectedCell.superview)
+        rect.origin = origin
+    
+        
+        // 2    Create a selection object using the country, indexPath, and frame of the cell
+        selectionObject = SelectionObject(country: country, selectedCellIndexPath: indexPath, originalCellPosition: rect)
+        
+        // 3    Next assign awesomeTransitionDelegate an instance of AwesomeTransitionDelegate, configured with your selection object, and set it as the view controller's transitioningDelegate
+        awesomeTransitionDelegate = AwesomeTransitioningDelegate(selectedObject: selectionObject!)
+        transitioningDelegate = awesomeTransitionDelegate
+        
+        // 4    Finally, create and present the overlay
+        var overlay = OverlayViewController(country: country)
+        overlay.transitioningDelegate = awesomeTransitionDelegate
+        presentViewController(overlay, animated: true, completion: nil)
+        
+        UIView.animateWithDuration(0.1, animations: {selectedCell.imageView.alpha = 0.0}, completion: nil)
+        
+    }
+
+    func hideImage(hidded: Bool, indexPath: NSIndexPath) {
+        if selectionObject != nil {
+            selectionObject!.country.isHidden = hidded
+        }
+        
+        if indexPath.row < self.countries.count {
+            collectionView.reloadItemsAtIndexPaths([indexPath])
+        }
+    }
+    
 }
 
