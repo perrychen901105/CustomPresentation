@@ -100,6 +100,12 @@ class CountriesViewController: UIViewController {
       cell.imageView.image = image;
       cell.imageView.layer.cornerRadius = 4.0
       
+        if selectionObject != nil && selectionObject?.country.countryName == country.countryName {
+            cell.imageView.hidden = selectionObject!.country.isHidden
+        } else {
+            cell.imageView.hidden = false
+        }
+        
       return cell;
   }
   
