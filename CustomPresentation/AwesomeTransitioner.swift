@@ -79,10 +79,17 @@ class AwesomeAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransition
             countriesViewController.hideImage(true, indexPath: selectedObject!.selectedCellIndexPath)
         }
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: {animatingView.frame = finalFrame}, completion: {(value: Bool) in
+        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction | UIViewAnimationOptions.BeginFromCurrentState, animations: {
+                animatingView.frame = finalFrame
+                countriesViewController.changeCellSpacingFroPresentation(self.isPresentation)
+            }, completion: {(value: Bool) in
             if !self.isPresentation{
-                fromView.removeFromSuperview()
-                transitionContext.completeTransition(true)
+                
+                countriesViewController.hideImage(false, indexPath: self.selectedObject!.selectedCellIndexPath)
+                UIView.animateWithDuration(0.3, animations:  {fromView.removeFromSuperview()
+                    transitionContext.completeTransition(true)})
+                
+               
             } else {
                 transitionContext.completeTransition(true)
             }

@@ -107,7 +107,8 @@ class AwesomePresentationController: UIPresentationController, UIViewControllerT
         dimmingView.addSubview(flagImageView)
         containerView.addSubview(dimmingView)
         
-        animateFlagToPresentedPosition(true)
+        animateFlagToPresentedPosition(true)//
+        animateFlagWithBounceToPresentation(true)
     }
     
     // 3    set isAnimating to true and animate the flag back to its original position alongside the animator's transition
@@ -115,7 +116,17 @@ class AwesomePresentationController: UIPresentationController, UIViewControllerT
         super.dismissalTransitionWillBegin()
         
         isAnimating = true
-        animateFlagToPresentedPosition(false)
+//        animateFlagToPresentedPosition(false)
+        animateFlagWithBounceToPresentation(false)
+    }
+ 
+    // add bounce to the animation when the flag image view moves
+    func animateFlagWithBounceToPresentation(presentedPosition: Bool) {
+        UIView.animateWithDuration(0.7, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.moveFlagToPresentedPosition(presentedPosition)
+            }) { (value: Bool) -> Void in
+            self.isAnimating = false
+        }
     }
     
 }
